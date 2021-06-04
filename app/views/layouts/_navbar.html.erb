@@ -1,22 +1,19 @@
 <header>
-  <% if current_user %>
-    <table>
-      <tr>
+  <table>
+    <tr>
+      <th style="color: blue; font-size: x-large">Galleria</th>
+      <% if current_user %>
         <th><%= link_to 'Home', root_path %> | </th>
         <th><%= link_to 'All paintings', paintings_path %> | </th>
         <th><%= link_to 'Search paintings', search_paintings_path %> | </th>
         <th><%= link_to 'Me', user_path(current_user) %> | </th>
         <th><%= link_to "Logout", logout_path, method: :post %></th>
-      </tr>
-    </table>
-  <% else %>
-    <table>
-      <tr>
+      <% else %>
         <th><%= link_to 'Home', root_path %> | </th>
         <th><%= link_to 'Signin', signin_path %> | </th>
         <th><%= link_to 'New user', new_user_path %> | </th>
         <th><%= link_to 'Login with Facebook', '/auth/facebook', method: :post %></th>
-      </tr>
-    </table>
-  <% end %>
+      <% end %>
+    </tr>
+  </table>
 </header>
