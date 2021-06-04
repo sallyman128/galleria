@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Name: <%= @user.name %></h1>
+<h2>Email: <%= @user.email %></h2>
+
+<% unless @user.comments.empty? %>
+  <p>Below are the comments that this user has posted.</p>
+
+  <table>
+    <tr>
+      <th>Painting Title</th>
+      <th>Comment</th>
+    </tr>
+    <% @user.comments.each do |comment| %>
+      <tr>
+        <td><%= link_to comment.painting.title, painting_path(comment.painting) %></td>
+        <td><%= link_to comment.message, painting_comment_path(comment.painting, comment) %></td>
+      </tr>
+    <% end %>
+  </table>
+<% else %>
+  <p>This user has not posted any comments on any paintings.</p>
+<% end %>

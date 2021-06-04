@@ -1,0 +1,11 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Comment for <%= @comment.painting.title %></h1>
+<p>Message: <i>"<%= @comment.message %>"</i><p>
+
+<% if @comment.user == current_user %>
+  <%= link_to 'Edit', edit_painting_comment_path(@comment.painting, @comment) %> | 
+  <%= link_to 'Delete', painting_comment_path(@comment.painting, @comment), method: :delete %> |
+<% end %>
+
+<%= link_to 'Back to painting', painting_path(@comment.painting) %>
